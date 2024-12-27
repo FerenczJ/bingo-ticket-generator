@@ -16,6 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit.version>3.8.1</junit.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
+        <project.lombok.version>1.18.36</project.lombok.version>
     </properties>
 
     <dependencies>
@@ -24,6 +25,12 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${project.lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
