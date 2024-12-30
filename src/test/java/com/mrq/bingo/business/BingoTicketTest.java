@@ -35,9 +35,9 @@ class BingoTicketTest {
 
     @Test
     void testTicketComposition_eachColumnShouldContainLessThan3Blank() {
-        for (int i = 0; i < 9; i++) {
+        for (var i = 0; i < 9; i++) {
             var column = new Integer[3];
-            for (int j = 0; j < 3; j++) {
+            for (var j = 0; j < 3; j++) {
                 column[j] = instance.getTicket()[j][i];
             }
             var result = Arrays.stream(column).collect(Collectors.partitioningBy(n -> n == 0));
@@ -47,9 +47,9 @@ class BingoTicketTest {
 
     @Test
     void testTicketComposition_eachColumnShouldBeOrderedAscendingSkippedBlanks() {
-        for (int i = 0; i < 9; i++) {
+        for (var i = 0; i < 9; i++) {
             var column = new Integer[3];
-            for (int j = 0; j < 3; j++) {
+            for (var j = 0; j < 3; j++) {
                 column[j] = instance.getTicket()[j][i];
             }
             // ignore zeros

@@ -2,7 +2,6 @@ package com.mrq.bingo.business;
 
 import com.mrq.bingo.utils.ArrayUtils;
 import lombok.Getter;
-
 import java.util.List;
 
 @Getter
@@ -18,7 +17,7 @@ public class BingoTicket {
     public BingoTicket(List<List<Integer>> numbers, List<List<Integer>> layout) {
         applyLayout(layout);
         fillWithNumbers(numbers);
-        ArrayUtils.sortColumns(ticket, 0);
+        ArrayUtils.sortColumns(ticket);
     }
 
     private void applyLayout(List<List<Integer>> layout) {
@@ -30,12 +29,12 @@ public class BingoTicket {
     }
 
     private void fillWithNumbers(List<List<Integer>> numbers) {
-        for (int i = 0; i < MAX_ROWS; i++) {
-            for (int j = 0; j < MAX_COLUMNS; j++) {
+        for (var i = 0; i < MAX_ROWS; i++) {
+            for (var j = 0; j < MAX_COLUMNS; j++) {
                 // if the cell is uninitialized
                 if(ticket[i][j] == null){
                     var list = numbers.get(j);
-                    var index = (int) ((Math.random() * (list.size() - 1)));
+                    var index = (int) (Math.random() * (list.size() - 1));
                     ticket[i][j] = list.remove(index);
                 }
             }
@@ -45,9 +44,9 @@ public class BingoTicket {
     @Override
     public String toString() {
         var result = new StringBuilder();
-        for (int i = 0; i < MAX_ROWS; i++) {
+        for (var i = 0; i < MAX_ROWS; i++) {
             result.append("[ ");
-            for (int j = 0; j < MAX_COLUMNS; j++) {
+            for (var j = 0; j < MAX_COLUMNS; j++) {
                 var str = "";
                 if(ticket[i][j] == FREE_SPACE) {
                     str = j == 0 ? "_" : "__";

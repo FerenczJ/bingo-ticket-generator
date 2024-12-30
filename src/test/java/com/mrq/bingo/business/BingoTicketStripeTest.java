@@ -39,7 +39,7 @@ class BingoTicketStripeTest {
     @Test
     void testStripeGeneration_10kStripeShouldBeGeneratedWithinASecond() {
         var start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
+        for (var i = 0; i < 10000; i++) {
             new BingoTicketStripe(BingoUtils.generateBingo90NumberPool(), new LayoutFactoryImpl().createLayout());
         }
         var end = System.currentTimeMillis();

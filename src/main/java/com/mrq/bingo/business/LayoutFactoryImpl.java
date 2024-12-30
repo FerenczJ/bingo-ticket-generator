@@ -9,6 +9,7 @@ import java.util.List;
 
 @NoArgsConstructor
 public class LayoutFactoryImpl implements LayoutFactory {
+    // indexes of cells that should be blank
     private static final int[][] INITIAL_LAYOUT = {
             {0, 2, 4, 6},
             {1, 3, 5, 7},
@@ -39,7 +40,7 @@ public class LayoutFactoryImpl implements LayoutFactory {
     public List<List<Integer>> createLayout() {
         var layout = ArrayUtils.shuffleRowsInGroup(Arrays.copyOf(INITIAL_LAYOUT, INITIAL_LAYOUT.length), 3);
 
-        // convert array to list
+        // convert array to modifiable list
         return Arrays.stream(layout)
                 .collect(ArrayList::new, (list, arr) -> list.add(Arrays.stream(arr).boxed().toList()), List::addAll);
     }

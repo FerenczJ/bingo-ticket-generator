@@ -13,7 +13,7 @@ public class BingoTicketStripe {
     private final BingoTicket[] stripe = new BingoTicket[STRIPE_SIZE];
 
     public BingoTicketStripe(List<List<Integer>> numbers, List<List<Integer>> layout) {
-        for (int i = 0; i < STRIPE_SIZE; i++) {
+        for (var i = 0; i < STRIPE_SIZE; i++) {
             var ticketLayout = layout.subList(i * MAX_ROWS, i * MAX_ROWS + MAX_ROWS);
             stripe[i] = new BingoTicket(numbers, ticketLayout);
         }

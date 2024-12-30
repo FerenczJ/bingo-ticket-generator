@@ -17,7 +17,7 @@ class ArrayUtilsTest {
         };
 
         // call the method
-        ArrayUtils.sortColumns(arr, 0);
+        ArrayUtils.sortColumns(arr);
 
         // assert the result
         assertArrayEquals(new Integer[][]{
@@ -37,7 +37,7 @@ class ArrayUtilsTest {
         };
 
         // call the method
-        ArrayUtils.sortColumns(arr, 0);
+        ArrayUtils.sortColumns(arr);
 
         // assert the result
         assertArrayEquals(new Integer[][]{

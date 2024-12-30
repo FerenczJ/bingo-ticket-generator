@@ -1,22 +1,26 @@
 package com.mrq.bingo.utils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ArrayUtils {
-    public static void sortColumns(Integer[][] arr, int ignore) {
+    public static void sortColumns(Integer[][] arr) {
         // sort each column
-        for (int i = 0; i < arr[0].length; i++) {
+        for (var i = 0; i < arr[0].length; i++) {
             // get column
             var column = new int[arr.length];
-            for (int j = 0; j < arr.length; j++) {
+            for (var j = 0; j < arr.length; j++) {
                 column[j] = arr[j][i];
             }
             // sort column
             column = ArrayUtils.sortArray(column, 0);
 
             // push back to column
-            for (int j = 0; j < arr.length; j++) {
+            for (var j = 0; j < arr.length; j++) {
                 arr[j][i] = column[j];
             }
         }
@@ -27,7 +31,7 @@ public class ArrayUtils {
                 .collect(Collectors.toList());
 
         Set<Integer> indexesOf = new HashSet<>();
-        int indexOf = -1;
+        int indexOf;
         int shift = 0;
         while ((indexOf = list.indexOf(ignore)) != -1) {
             indexesOf.add(indexOf + shift++);
